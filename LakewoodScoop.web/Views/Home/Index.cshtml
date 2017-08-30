@@ -1,0 +1,23 @@
+﻿
+@using LakewoodScoop.Scraper
+@using LakewoodScoop.web.Models
+
+@model IndexViewModel
+
+<div class="row">
+   @foreach (Scoop post in Model.Posts)
+   {
+    <h2>
+        <a href="@post.Link">@post.Title</a>
+    </h2>
+    if (post.Date != "")
+    {
+        <p><span class="glyphicon glyphicon-time"></span> @post.Date</p>
+    }
+    <hr>
+    <img class="img-responsive" src="@post.ImageUrl">
+    <hr>
+    <p>@post.Content <a href="@post.MoreLink"><span class="glyphicon glyphicon-chevron-right"></span></a></p>    
+    <hr>
+   }
+</div>
